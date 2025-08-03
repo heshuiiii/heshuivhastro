@@ -2,7 +2,7 @@ export default {
   // 网站标题
   Title: 'aks',
   // 网站地址
-  Site: 'https://www.vvhan.com',
+  Site: 'https://akaye.de',
   // 网站副标题
   Subtitle: '入土为安',
   // 网站描述
@@ -42,11 +42,11 @@ export default {
     // 字体颜色
     "--vh-font-color": "#34495e",
     // 侧边栏宽度
-    "--vh-aside-width": "318px",
+    "--vh-aside-width": "300px",
     // 全局圆角
     "--vh-main-radius": "0.88rem",
     // 主体内容宽度
-    "--vh-main-max-width": "1458px",
+    "--vh-main-max-width": "1000px",
   },
   // 导航栏 (新窗口打开 newWindow: true)
   Navs: [
@@ -60,16 +60,17 @@ export default {
     { text: '关于', link: '/about', icon: 'Nav_about' },
     { text: 'API', link: 'https://api.vvhan.com/', target: true, icon: 'Nav_link' },
   ],
-  // 侧边栏个人网站
-  WebSites: [
-    // 仅支持 SVG 且 SVG 需放在 public/assets/images/svg/ 目录下，填入文件名即可 <不需要文件后缀名>（封装了 SVG 组件 为了极致压缩 SVG）
-    // 建议使用 https://tabler.io/icons 直接下载 SVG
-    { text: 'Github', link: 'https://github.com/uxiaohan', icon: 'WebSite_github' },
-    { text: '韩小韩API', link: 'https://api.vvhan.com', icon: 'WebSite_api' },
-    { text: '每日热榜', link: 'https://hot.vvhan.com', icon: 'WebSite_hot' },
-    { text: '骤雨重山图床', link: 'https://wp-cdn.4ce.cn', icon: 'WebSite_img' },
-    { text: 'HanAnalytics', link: 'https://analytics.vvhan.com', icon: 'WebSite_analytics' },
-  ],
+  // // 侧边栏个人网站
+  // WebSites: [
+  //   // 仅支持 SVG 且 SVG 需放在 public/assets/images/svg/ 目录下，填入文件名即可 <不需要文件后缀名>（封装了 SVG 组件 为了极致压缩 SVG）
+  //   // 建议使用 https://tabler.io/icons 直接下载 SVG
+  //   { text: 'Github', link: 'https://github.com/uxiaohan', icon: 'WebSite_github' },
+  //   { text: '韩小韩API', link: 'https://api.vvhan.com', icon: 'WebSite_api' },
+  //   { text: '每日热榜', link: 'https://hot.vvhan.com', icon: 'WebSite_hot' },
+  //   { text: '骤雨重山图床', link: 'https://wp-cdn.4ce.cn', icon: 'WebSite_img' },
+  //   { text: 'HanAnalytics', link: 'https://analytics.vvhan.com', icon: 'WebSite_analytics' },
+  // ],
+  
   // 侧边栏展示
   AsideShow: {
     // 是否展示个人网站
@@ -79,7 +80,7 @@ export default {
     // 是否展示标签
     TagsShow: true,
     // 是否展示推荐文章
-    recommendArticleShow: true
+    recommendArticleShow: false
   },
   // DNS预解析地址
   DNSOptimization: [
@@ -90,8 +91,8 @@ export default {
     'https://registry.npmmirror.com',
     'https://pagead2.googlesyndication.com'
   ],
-  // 博客音乐组件解析接口
-  vhMusicApi: 'https://vh-api.4ce.cn/blog/meting',
+  // // 博客音乐组件解析接口
+  // vhMusicApi: 'https://vh-api.4ce.cn/blog/meting',
   // 评论组件（只允许同时开启一个）
   Comment: {
     // Twikoo 评论
@@ -105,23 +106,23 @@ export default {
       serverURL: ''
     }
   },
-  // Han Analytics 统计（https://github.com/uxiaohan/HanAnalytics）
-  HanAnalytics: { enable: true, server: 'https://analytics.vvhan.com', siteId: 'Hello-HanHexoBlog' },
-  // Google 广告
-  GoogleAds: {
-    ad_Client: '', //ca-pub-xxxxxx
-    // 侧边栏广告(不填不开启)
-    asideAD_Slot: `<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-xxxxxx" data-ad-slot="xxxxxx" data-ad-format="auto" data-full-width-responsive="true"></ins>`,
-    // 文章页广告(不填不开启)
-    articleAD_Slot: `<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-xxxxxx" data-ad-slot="xxxxxx" data-ad-format="auto" data-full-width-responsive="true"></ins>`
-  },
-  // 文章内赞赏码
-  Reward: {
-    // 支付宝收款码
-    AliPay: '/assets/images/alipay.webp',
-    // 微信收款码
-    WeChat: '/assets/images/wechat.webp'
-  },
+  // // Han Analytics 统计（https://github.com/uxiaohan/HanAnalytics）
+  // HanAnalytics: { enable: true, server: 'https://analytics.vvhan.com', siteId: 'Hello-HanHexoBlog' },
+  // // Google 广告
+  // GoogleAds: {
+  //   ad_Client: '', //ca-pub-xxxxxx
+  //   // 侧边栏广告(不填不开启)
+  //   asideAD_Slot: `<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-xxxxxx" data-ad-slot="xxxxxx" data-ad-format="auto" data-full-width-responsive="true"></ins>`,
+  //   // 文章页广告(不填不开启)
+  //   articleAD_Slot: `<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-xxxxxx" data-ad-slot="xxxxxx" data-ad-format="auto" data-full-width-responsive="true"></ins>`
+  // },
+  // // 文章内赞赏码
+  // Reward: {
+  //   // 支付宝收款码
+  //   AliPay: '/assets/images/alipay.webp',
+  //   // 微信收款码
+  //   WeChat: '/assets/images/wechat.webp'
+  // },
   // 访问网页 自动推送到搜索引擎
   SeoPush: {
     enable: false,
@@ -129,5 +130,5 @@ export default {
     paramsName: 'url'
   },
   // 页面阻尼滚动速度
-  ScrollSpeed: 100
+  ScrollSpeed: 200
 }
