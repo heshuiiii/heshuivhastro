@@ -3,7 +3,7 @@ title: "h@h搭建(hentaiathome)"
 categories: "服务器"
 tags:
   - 服务器
-id: 1686448088
+id: dsadsd
 date: "2023-06-11 09:48:08"
 updated: "2023-06-11 09:48:08"
 cover: ""
@@ -62,4 +62,5 @@ systemctl start h@h.service
 ```
 
 保持不要掉线  
+
  
