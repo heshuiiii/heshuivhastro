@@ -2,7 +2,7 @@ export default {
   // 网站标题
   Title: 'aks',
   // 网站地址
-  Site: 'https://akaye.de',
+  Site: 'https://heshuivhastro.vercel.app',
   // 网站副标题
   Subtitle: '入土为安',
   // 网站描述
