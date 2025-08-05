@@ -44,5 +44,12 @@ export default defineConfig({
 		shikiConfig: { theme: 'github-light' },
 	},
 	vite: { resolve: { alias: { "@": path.resolve(__dirname, "./src") } } },
-	server: { host: '0.0.0.0' }
+	server: {
+			host: true,
+			allowedHosts: ['akaye.de', 'www.akaye.de', 'localhost', '0.0.0.0', '74.48.31.84'],
+		},
+	preview: {
+			host: true,
+			allowedHosts: ['akaye.de', 'www.akaye.de', 'localhost', '0.0.0.0', '74.48.31.84'],
+	}
 });
