@@ -41,15 +41,29 @@ cover: ""
 
 ---
 
-## 💸 国外网赚盘解锁服务（Link Unlocker）
+## ~~💸 国外网赚盘解锁服务~~
 - **地址**：[https://linku.ikuyo.de](https://linku.ikuyo.de)
-- **说明**：解锁各类国外网盘限制
+- **说明**：解锁各类国外网盘限制 目前订阅过期了
 
 ---
-## 💸 Youtube下载（Link Unlocker）
+## 💸 Youtube下载
 - **地址**：[https://aks-youtube.ikuyo.de](https://aks-youtube.ikuyo.de)
 - **说明**：本地vps下载-自用
 
 ---
+## 💸 Frp面板
+- **地址**：[https://frps.ikuyo.de/](https://frps.ikuyo.de/)
+- **说明**：快速建立frp穿透
+
+---
+
+
+
+
+
+
+
+
+
 
 > 🚧 不知道能支撑多久，每年大约1500元服务器费用。
