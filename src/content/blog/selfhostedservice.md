@@ -18,7 +18,7 @@ cover: ""
 ---
 
 ## 🖼 图床服务
-- **地址**：[https://file.akaye.de/](https://file.akaye.de/)
+- **地址**：[https://picup.ikuyo.de/](https://picup.ikuyo.de/)
 - **说明**：兰空，偶尔用r2
 
 ---
@@ -67,3 +67,4 @@ cover: ""
 
 
 > 🚧 不知道能支撑多久，每年大约1500元服务器费用。
+
