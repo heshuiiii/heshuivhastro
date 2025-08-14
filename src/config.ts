@@ -57,6 +57,7 @@ export default {
     { text: '动态', link: '/talking', icon: 'Nav_talking' },
     // { text: '昔日', link: '/archives', icon: 'Nav_archives' },
     { text: '留言', link: '/message', icon: 'Nav_message' },
+    { text: '服务', link: 'https://akaye.de/article/cab6766f498be4fe', icon: 'horizontal-code' },
     // { text: '关于', link: '/about', icon: 'Nav_about' },
     // { text: 'API', link: 'https://api.vvhan.com/', target: true, icon: 'Nav_link' },
   ],
