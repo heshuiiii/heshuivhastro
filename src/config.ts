@@ -10,7 +10,7 @@ export default {
   // 网站作者
   Author: 'Allen',
   // 作者头像
-  Avatar: 'assets/images/avatar.jpg',
+  Avatar: '/assets/images/avatar.jpg',
   // 网站座右铭
   Motto: '好起来',
   // Cover 网站缩略图
