@@ -46,9 +46,9 @@ cover: ""
 - **说明**：解锁各类国外网盘限制 目前订阅过期了
 
 ---
-## 💸 Youtube下载
+## 💸 ~~Youtube下载~~
 - **地址**：[https://aks-youtube.ikuyo.de](https://aks-youtube.ikuyo.de)
-- **说明**：本地vps下载-自用
+- **说明**：快速下载youtube视频 目前不可用（没空间了
 
 ---
 ## 💸 Frp面板
@@ -56,15 +56,25 @@ cover: ""
 - **说明**：快速建立frp穿透
 
 ---
+## 💸 Wallos订阅提醒
+- **地址**：[https://wallos.ikuyo.de/](https://wallos.ikuyo.de/)
+- **说明**：查看服务订阅
+
+---
+## 💸 Vertex刷流
+- **地址**：[https://vertex.ikuyo.de/](https://vertex.ikuyo.de/)
+- **说明**：pt刷流订阅
+
+---
+## 💸 MoviePilot
+- **地址**：[https://mp.ikuyo.de/](https://mp.ikuyo.de/)
+- **说明**：影视追剧订阅更新
+
+---
 
 
 
 
 
 
-
-
-
-
-> 🚧 不知道能支撑多久，每年大约1500元服务器费用。
-
+> 🚧 不知道能支撑多久，每年大约花费1500元。
