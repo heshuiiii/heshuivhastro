@@ -12,34 +12,107 @@
   <script>
     // 自动生成文章ID的函数
     function generateId() {
-      return Math.random().toString(36).substr(2, 16);
+      return 'post_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
     }
 
-    // CMS加载完成后的回调
-    CMS.registerEventListener({
-      name: 'prePublish',
-      handler: ({ entry }) => {
-        // 如果ID字段为空，自动生成一个
-        const data = entry.get('data');
-        if (!data.get('id') || data.get('id').trim() === '') {
-          return entry.get('data').set('id', generateId());
+    // 等待CMS加载完成
+    CMS.init().then(() => {
+      console.log('CMS初始化完成');
+      
+      // 方法1：使用preSave事件
+      CMS.registerEventListener({
+        name: 'preSave',
+        handler: ({ entry }) => {
+          console.log('preSave事件触发');
+          const data = entry.get('data');
+          const currentId = data.get('id');
+          
+          // 如果ID为空或只有空白字符，生成新ID
+          if (!currentId || currentId.trim() === '') {
+            const newId = generateId();
+            console.log('生成新ID:', newId);
+            return entry.get('data').set('id', newId);
+          }
+          return data;
         }
-        return data;
-      }
+      });
+
+      // 方法2：使用prePublish事件作为备选
+      CMS.registerEventListener({
+        name: 'prePublish',
+        handler: ({ entry }) => {
+          console.log('prePublish事件触发');
+          const data = entry.get('data');
+          const currentId = data.get('id');
+          
+          if (!currentId || currentId.trim() === '') {
+            const newId = generateId();
+            console.log('在发布前生成新ID:', newId);
+            return entry.get('data').set('id', newId);
+          }
+          return data;
+        }
+      });
+
+      // 方法3：自定义widget来处理ID生成
+      CMS.registerWidget('auto-id', {
+        controlComponent: class extends React.Component {
+          constructor(props) {
+            super(props);
+            // 如果值为空，自动生成ID
+            if (!props.value || props.value.trim() === '') {
+              const newId = generateId();
+              console.log('Widget生成新ID:', newId);
+              props.onChange(newId);
+            }
+          }
+
+          handleChange = (e) => {
+            this.props.onChange(e.target.value);
+          }
+
+          render() {
+            const { value } = this.props;
+            return React.createElement('div', null, [
+              React.createElement('label', { key: 'label' }, '文章ID (自动生成)'),
+              React.createElement('input', {
+                key: 'input',
+                type: 'text',
+                value: value || '',
+                onChange: this.handleChange,
+                placeholder: '留空将自动生成',
+                style: { 
+                  width: '100%', 
+                  padding: '8px', 
+                  border: '1px solid #ccc',
+                  borderRadius: '4px',
+                  backgroundColor: '#f9f9f9'
+                }
+              }),
+              React.createElement('small', { 
+                key: 'help',
+                style: { color: '#666', display: 'block', marginTop: '4px' } 
+              }, '如果留空，系统将自动生成唯一ID')
+            ]);
+          }
+        }
+      });
     });
 
-    // 预览模板（可选）
+    // 预览模板
     CMS.registerPreviewTemplate('blog', ({ entry, widgetFor, widgetsFor }) => {
       const title = entry.getIn(['data', 'title']);
       const body = widgetFor('body');
       const categories = entry.getIn(['data', 'categories']);
       const tags = entry.getIn(['data', 'tags']);
       const date = entry.getIn(['data', 'date']);
+      const id = entry.getIn(['data', 'id']);
       
       return `
         <div style="padding: 20px; font-family: Arial, sans-serif;">
           <h1 style="color: #333;">${title || '未命名文章'}</h1>
           <div style="color: #666; margin-bottom: 10px;">
+            <span>ID: ${id || '将自动生成'}</span> | 
             <span>分类: ${categories || '未分类'}</span> | 
             <span>日期: ${date ? new Date(date).toLocaleString('zh-CN') : '未设置'}</span>
           </div>
