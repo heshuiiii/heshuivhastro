@@ -1,12 +1,9 @@
 backend:
   name: git-gateway
   branch: main
-
 media_folder: "public/images"
 public_folder: "/images"
-
 locale: 'zh_Hans'
-
 collections:
   - name: "blog"
     label: "博客文章"
@@ -42,6 +39,7 @@ collections:
         name: "id"
         widget: "string"
         default: ""
+        required: false
         hint: "留空将自动生成随机ID"
       - label: "发布日期"
         name: "date"
