@@ -17,18 +17,26 @@
 
     // 等待CMS加载完成后注册事件
     CMS.init().then(() => {
-      // 使用preSave事件自动生成ID
+      // 使用preSave事件自动生成ID和日期
       CMS.registerEventListener({
         name: 'preSave',
         handler: ({ entry }) => {
-          const data = entry.get('data');
-          const currentId = data.get('id');
+          let data = entry.get('data');
           
           // 如果ID为空或只有空白字符，生成新ID
+          const currentId = data.get('id');
           if (!currentId || currentId.trim() === '') {
             const newId = generateId();
-            return entry.get('data').set('id', newId);
+            data = data.set('id', newId);
           }
+          
+          // 如果日期为空，设置当前时间
+          const currentDate = data.get('date');
+          if (!currentDate || currentDate.trim() === '') {
+            const now = new Date().toISOString().slice(0, 19).replace('T', ' ');
+            data = data.set('date', now);
+          }
+          
           return data;
         }
       });
