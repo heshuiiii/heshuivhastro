@@ -5,15 +5,59 @@ backend:
 media_folder: "public/images"
 public_folder: "/images"
 
+locale: 'zh_Hans'
+
 collections:
   - name: "blog"
-    label: "Blog"
+    label: "博客文章"
     folder: "src/content/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    editor:
+      preview: true
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "pubDate", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "string"}
-      - {label: "Tags", name: "tags", widget: "list", default: ["astro"]}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - label: "标题"
+        name: "title"
+        widget: "string"
+        required: true
+      - label: "分类"
+        name: "categories"
+        widget: "select"
+        options: 
+          - "服务器"
+          - "技术"
+          - "生活"
+          - "教程"
+          - "工具"
+        default: "技术"
+        required: true
+      - label: "标签"
+        name: "tags"
+        widget: "list"
+        default: ["技术"]
+        allow_add: true
+        collapsed: false
+        field: {label: "标签", name: "tag", widget: "string"}
+      - label: "文章ID"
+        name: "id"
+        widget: "string"
+        default: ""
+        hint: "留空将自动生成随机ID"
+      - label: "发布日期"
+        name: "date"
+        widget: "datetime"
+        default: ""
+        date_format: "YYYY-MM-DD"
+        time_format: "HH:mm:ss"
+        format: "YYYY-MM-DD HH:mm:ss"
+        picker_utc: false
+      - label: "封面图片"
+        name: "cover"
+        widget: "string"
+        default: ""
+        required: false
+        hint: "输入图片URL或留空"
+      - label: "正文内容"
+        name: "body"
+        widget: "markdown"
+        required: true
