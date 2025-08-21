@@ -1,14 +1,68 @@
-
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Content Manager</title>
+  <title>博客管理后台</title>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-  <!-- Include the script that builds the page and powers Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  
+  <script>
+    // 自动生成文章ID的函数
+    function generateId() {
+      return Math.random().toString(36).substr(2, 16);
+    }
+
+    // CMS加载完成后的回调
+    CMS.registerEventListener({
+      name: 'prePublish',
+      handler: ({ entry }) => {
+        // 如果ID字段为空，自动生成一个
+        const data = entry.get('data');
+        if (!data.get('id') || data.get('id').trim() === '') {
+          return entry.get('data').set('id', generateId());
+        }
+        return data;
+      }
+    });
+
+    // 预览模板（可选）
+    CMS.registerPreviewTemplate('blog', ({ entry, widgetFor, widgetsFor }) => {
+      const title = entry.getIn(['data', 'title']);
+      const body = widgetFor('body');
+      const categories = entry.getIn(['data', 'categories']);
+      const tags = entry.getIn(['data', 'tags']);
+      const date = entry.getIn(['data', 'date']);
+      
+      return `
+        <div style="padding: 20px; font-family: Arial, sans-serif;">
+          <h1 style="color: #333;">${title || '未命名文章'}</h1>
+          <div style="color: #666; margin-bottom: 10px;">
+            <span>分类: ${categories || '未分类'}</span> | 
+            <span>日期: ${date ? new Date(date).toLocaleString('zh-CN') : '未设置'}</span>
+          </div>
+          ${tags ? `<div style="margin-bottom: 20px;">
+            ${tags.map(tag => `<span style="background: #e0e0e0; padding: 2px 8px; margin-right: 5px; border-radius: 3px;">${tag}</span>`).join('')}
+          </div>` : ''}
+          <div style="border-top: 1px solid #eee; padding-top: 20px;">
+            ${body || ''}
+          </div>
+        </div>
+      `;
+    });
+
+    // Netlify Identity 自动跳转
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
 </body>
 </html>
