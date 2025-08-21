@@ -3,7 +3,7 @@ title: "Netcup RS1000 G9.5 Pro MNZ "
 categories: 服务器
 tags:
   - 技术
-id: "Netcup RS1000 G9.5 Pro MNZ "
+id: NetcupRS1000G9.5ProMNZnd
 date: 2025-08-21 16:19:00
 cover: ""
 ---
