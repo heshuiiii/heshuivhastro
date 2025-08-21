@@ -44,11 +44,12 @@ collections:
       - label: "发布日期"
         name: "date"
         widget: "datetime"
-        default: ""
+        default: "{{now}}"
         date_format: "YYYY-MM-DD"
         time_format: "HH:mm:ss"
         format: "YYYY-MM-DD HH:mm:ss"
         picker_utc: false
+        required: false
       - label: "封面图片"
         name: "cover"
         widget: "string"
