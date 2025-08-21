@@ -1,10 +1,9 @@
-
 backend:
   name: git-gateway
   branch: main
 
-# media_folder: "public/images"
-# public_folder: "/images"
+media_folder: "public/images"
+public_folder: "/images"
 
 collections:
   - name: "blog"
@@ -13,17 +12,8 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Author", name: "author", widget: "string", default: "你的名字" }
-      - { label: "Image", name: "image", widget: "object", fields: [
-          { label: "URL", name: "url", widget: "string" },
-          { label: "Alt", name: "alt", widget: "string" }
-        ]}
-      - { label: "Tags", name: "tags", widget: "list", default: ["astro"] }
-      - { label: "Body", name: "body", widget: "markdown" }
-
-
-
-# local_backend: true
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "pubDate", widget: "datetime"}
+      - {label: "Description", name: "description", widget: "string"}
+      - {label: "Tags", name: "tags", widget: "list", default: ["astro"]}
+      - {label: "Body", name: "body", widget: "markdown"}
