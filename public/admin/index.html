@@ -8,40 +8,30 @@
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  
+
   <script>
     // 自动生成文章ID的函数
     function generateId() {
-      return 'post_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+      return 'post' + Date.now() + '' + Math.random().toString(36).substr(2, 9);
     }
-
     // 等待CMS加载完成后注册事件
     CMS.init().then(() => {
-      // 使用preSave事件自动生成ID和日期
+      // 使用preSave事件自动生成ID
       CMS.registerEventListener({
         name: 'preSave',
         handler: ({ entry }) => {
-          let data = entry.get('data');
-          
-          // 如果ID为空或只有空白字符，生成新ID
+          const data = entry.get('data');
           const currentId = data.get('id');
+
+          // 如果ID为空或只有空白字符，生成新ID
           if (!currentId || currentId.trim() === '') {
             const newId = generateId();
-            data = data.set('id', newId);
+            return entry.get('data').set('id', newId);
           }
-          
-          // 如果日期为空，设置当前时间
-          const currentDate = data.get('date');
-          if (!currentDate || currentDate.trim() === '') {
-            const now = new Date().toISOString().slice(0, 19).replace('T', ' ');
-            data = data.set('date', now);
-          }
-          
           return data;
         }
       });
     });
-
     // 预览模板
     CMS.registerPreviewTemplate('blog', ({ entry, widgetFor, widgetsFor }) => {
       const title = entry.getIn(['data', 'title']);
@@ -49,24 +39,23 @@
       const categories = entry.getIn(['data', 'categories']);
       const tags = entry.getIn(['data', 'tags']);
       const date = entry.getIn(['data', 'date']);
-      
-      return `
+
+      return 
         <div style="padding: 20px; font-family: Arial, sans-serif;">
           <h1 style="color: #333;">${title || '未命名文章'}</h1>
           <div style="color: #666; margin-bottom: 10px;">
             <span>分类: ${categories || '未分类'}</span> | 
             <span>日期: ${date ? new Date(date).toLocaleString('zh-CN') : '未设置'}</span>
           </div>
-          ${tags ? `<div style="margin-bottom: 20px;">
-            ${tags.map(tag => `<span style="background: #e0e0e0; padding: 2px 8px; margin-right: 5px; border-radius: 3px;">${tag}</span>`).join('')}
-          </div>` : ''}
+          ${tags ? <div style="margin-bottom: 20px;">
+            ${tags.map(tag => <span style="background: #e0e0e0; padding: 2px 8px; margin-right: 5px; border-radius: 3px;">${tag}</span>).join('')}
+          </div> : ''}
           <div style="border-top: 1px solid #eee; padding-top: 20px;">
             ${body || ''}
           </div>
         </div>
-      `;
+      ;
     });
-
     // Netlify Identity 自动跳转
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
