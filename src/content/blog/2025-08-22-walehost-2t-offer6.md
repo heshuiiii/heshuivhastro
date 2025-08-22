@@ -39,6 +39,19 @@ root@assdadad8d19:/home# wget -qO- bench.sh | bash
  I/O Speed(2nd run) : 79.2 MB/s
  I/O Speed(3rd run) : 74.2 MB/s
  I/O Speed(average) : 74.1 MB/s
+----------------------------------------------------------------------
+ Node Name        Upload Speed      Download Speed      Latency     
+ Speedtest.net    352.89 Mbps       888.97 Mbps         0.32 ms     
+ Paris, FR        393.28 Mbps       901.28 Mbps         12.38 ms    
+ Amsterdam, NL    831.81 Mbps       288.77 Mbps         8.72 ms     
+ Shanghai, CN     390.13 Mbps       109.16 Mbps         259.88 ms   
+ Hong Kong, CN    350.19 Mbps       42.65 Mbps          254.05 ms   
+ Singapore, SG    63.69 Mbps        294.16 Mbps         202.35 ms   
+ Tokyo, JP        386.47 Mbps       754.56 Mbps         211.92 ms   
+----------------------------------------------------------------------
+ Finished in        : 4 min 6 sec
+ Timestamp          : 2025-08-22 04:23:53 EDT
+----------------------------------------------------------------------
 
 ```
 
