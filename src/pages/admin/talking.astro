@@ -1,1 +1,535 @@
+---
+// src/pages/admin/talking.astro
+// 可以添加认证逻辑
+const isAuthenticated = true; // 这里可以添加你的认证逻辑
 
+if (!isAuthenticated) {
+  // 重定向到登录页面或返回 401
+  // return new Response('Unauthorized', { status: 401 });
+}
+---
+
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>说说管理 - 后台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .nav-back {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-back:hover {
+            transform: scale(1.1);
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+        
+        .main {
+            padding: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .tag-input {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .tag-input input {
+            flex: 1;
+        }
+        
+        .add-tag-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .add-tag-btn:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+        }
+        
+        .tags-display {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .tag {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            animation: slideIn 0.3s ease;
+        }
+        
+        .tag .remove {
+            cursor: pointer;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        
+        .tag .remove:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+        
+        .submit-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(238, 90, 82, 0.3);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(238, 90, 82, 0.4);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+        
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .status.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .config-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .config-section h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .help-text {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 20px;
+                position: relative;
+            }
+            
+            .nav-back {
+                position: relative;
+                top: auto;
+                left: auto;
+                display: inline-block;
+                margin-bottom: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .main {
+                padding: 20px;
+            }
+            
+            .tag-input {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="/admin" class="nav-back">←</a>
+            <h1>📝 说说管理</h1>
+            <p>添加新的动态内容</p>
+        </div>
+        
+        <div class="main">
+            <form id="talkingForm">
+                <div class="form-group">
+                    <label for="content">内容</label>
+                    <textarea id="content" placeholder="写下你的想法..." required></textarea>
+                    <div class="help-text">支持 HTML 标签，图片请用 &lt;p class="vh-img-flex"&gt;&lt;img src="..."&gt;&lt;/p&gt; 包裹</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tags">标签</label>
+                    <div class="tag-input">
+                        <input type="text" id="tagInput" placeholder="输入标签">
+                        <button type="button" class="add-tag-btn" onclick="addTag()">添加</button>
+                    </div>
+                    <div class="tags-display" id="tagsDisplay"></div>
+                </div>
+                
+                <div class="config-section">
+                    <h3>🔧 GitHub 配置</h3>
+                    <div class="form-group">
+                        <label for="githubToken">GitHub Token</label>
+                        <input type="password" id="githubToken" placeholder="ghp_xxxxxxxxxxxx" required>
+                        <div class="help-text">需要 'repo' 权限的 Personal Access Token</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="repoPath">仓库路径</label>
+                        <input type="text" id="repoPath" placeholder="username/repo-name" required>
+                        <div class="help-text">格式：用户名/仓库名</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="filePath">文件路径</label>
+                        <input type="text" id="filePath" value="src/page_data/Talking.ts" required>
+                        <div class="help-text">Talking.ts 文件在仓库中的路径</div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">🚀 发布说说</button>
+            </form>
+            
+            <div id="status" class="status"></div>
+        </div>
+    </div>
+
+    <script>
+        let tags = [];
+        
+        function addTag() {
+            const input = document.getElementById('tagInput');
+            const tag = input.value.trim();
+            
+            if (tag && !tags.includes(tag)) {
+                tags.push(tag);
+                updateTagsDisplay();
+                input.value = '';
+            }
+        }
+        
+        function removeTag(tag) {
+            tags = tags.filter(t => t !== tag);
+            updateTagsDisplay();
+        }
+        
+        function updateTagsDisplay() {
+            const display = document.getElementById('tagsDisplay');
+            display.innerHTML = tags.map(tag => 
+                `<span class="tag">
+                    ${tag}
+                    <span class="remove" onclick="removeTag('${tag}')">&times;</span>
+                </span>`
+            ).join('');
+        }
+        
+        // 回车添加标签
+        document.getElementById('tagInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                addTag();
+            }
+        });
+        
+        function showStatus(message, isError = false) {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.className = `status ${isError ? 'error' : 'success'} show`;
+            
+            setTimeout(() => {
+                status.classList.remove('show');
+            }, 5000);
+        }
+        
+        async function updateTalkingFile(newItem, config) {
+            try {
+                // 1. 获取当前文件内容
+                const getResponse = await fetch(`https://api.github.com/repos/${config.repoPath}/contents/${config.filePath}`, {
+                    headers: {
+                        'Authorization': `token ${config.githubToken}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                });
+                
+                if (!getResponse.ok) {
+                    throw new Error('无法获取文件内容');
+                }
+                
+                const fileData = await getResponse.json();
+                const currentContent = atob(fileData.content);
+                
+                // 2. 解析当前内容并添加新项
+                const dataMatch = currentContent.match(/data:\s*\[([\s\S]*?)\n\s*\]/);
+                if (!dataMatch) {
+                    throw new Error('无法解析文件格式');
+                }
+                
+                // 生成新的条目，保持和你原有格式一致
+                const newItemStr = `    {
+      "date": "${newItem.date}",
+      "tags": ${JSON.stringify(newItem.tags, null, 8).replace(/\n/g, '\n      ')},
+      "content": ${JSON.stringify(newItem.content)}
+    }`;
+                
+                let newContent;
+                if (dataMatch[1].trim() === '') {
+                    // 空数组
+                    newContent = currentContent.replace(
+                        /data:\s*\[\s*\]/,
+                        `data: [\n${newItemStr}\n  ]`
+                    );
+                } else {
+                    // 有数据，添加到开头（最新的在最前面）
+                    newContent = currentContent.replace(
+                        /data:\s*\[/,
+                        `data: [\n${newItemStr},`
+                    );
+                }
+                
+                // 3. 提交更新
+                const updateResponse = await fetch(`https://api.github.com/repos/${config.repoPath}/contents/${config.filePath}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${config.githubToken}`,
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: `Add new talking: ${newItem.content.replace(/<[^>]*>/g, '').substring(0, 30)}...`,
+                        content: btoa(unescape(encodeURIComponent(newContent))),
+                        sha: fileData.sha,
+                        branch: 'main' // 改为你的默认分支，如果是 'master' 请修改
+                    })
+                });
+                
+                if (!updateResponse.ok) {
+                    const errorData = await updateResponse.json();
+                    throw new Error(errorData.message || '提交失败');
+                }
+                
+                return await updateResponse.json();
+            } catch (error) {
+                console.error('Error:', error);
+                throw error;
+            }
+        }
+        
+        document.getElementById('talkingForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            
+            try {
+                submitBtn.textContent = '🔄 发布中...';
+                submitBtn.disabled = true;
+                
+                const content = document.getElementById('content').value;
+                const githubToken = document.getElementById('githubToken').value;
+                const repoPath = document.getElementById('repoPath').value;
+                const filePath = document.getElementById('filePath').value;
+                
+                if (!content || !githubToken || !repoPath) {
+                    throw new Error('请填写所有必需字段');
+                }
+                
+                // 生成符合你格式的日期时间
+                const now = new Date();
+                const dateStr = now.getFullYear() + '-' + 
+                    String(now.getMonth() + 1).padStart(2, '0') + '-' + 
+                    String(now.getDate()).padStart(2, '0') + ' ' +
+                    String(now.getHours()).padStart(2, '0') + ':' +
+                    String(now.getMinutes()).padStart(2, '0') + ':' +
+                    String(now.getSeconds()).padStart(2, '0');
+                
+                const newItem = {
+                    date: dateStr,
+                    tags: tags,
+                    content: content
+                };
+                
+                const config = {
+                    githubToken,
+                    repoPath,
+                    filePath
+                };
+                
+                await updateTalkingFile(newItem, config);
+                
+                showStatus('✅ 说说发布成功！Vercel 将在几分钟内自动更新。');
+                
+                // 清空表单
+                document.getElementById('content').value = '';
+                tags = [];
+                updateTagsDisplay();
+                
+            } catch (error) {
+                showStatus(`❌ 发布失败: ${error.message}`, true);
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+        
+        // 从 localStorage 恢复配置
+        window.addEventListener('load', function() {
+            const saved = localStorage.getItem('talking-config');
+            if (saved) {
+                const config = JSON.parse(saved);
+                document.getElementById('githubToken').value = config.githubToken || '';
+                document.getElementById('repoPath').value = config.repoPath || '';
+                document.getElementById('filePath').value = config.filePath || 'src/page_data/Talking.ts';
+            }
+        });
+        
+        // 保存配置到 localStorage
+        ['githubToken', 'repoPath', 'filePath'].forEach(id => {
+            document.getElementById(id).addEventListener('change', function() {
+                const config = {
+                    githubToken: document.getElementById('githubToken').value,
+                    repoPath: document.getElementById('repoPath').value,
+                    filePath: document.getElementById('filePath').value
+                };
+                localStorage.setItem('talking-config', JSON.stringify(config));
+            });
+        });
+    </script>
+</body>
+</html>
