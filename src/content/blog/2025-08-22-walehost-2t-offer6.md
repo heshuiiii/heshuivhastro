@@ -55,6 +55,54 @@ root@assdadad8d19:/home# wget -qO- bench.sh | bash
 
 ```
 
+```
+-------------------- A Bench.sh Script By Teddysun -------------------
+ Version            : v2025-05-08
+ Usage              : wget -qO- bench.sh | bash
+----------------------------------------------------------------------
+ CPU Model          : AMD Ryzen 9 5950X 16-Core Processor
+ CPU Cores          : 2 @ 3393.624 MHz
+ CPU Cache          : 512 KB
+ AES-NI             : ✓ Enabled
+ VM-x/AMD-V         : ✓ Enabled
+ Total Disk         : 2.0 TB (7.3 GB Used)
+ Total Mem          : 3.8 GB (117.2 MB Used)
+ Total Swap         : 6.0 GB (0 Used)
+ System uptime      : 0 days, 0 hour 9 min
+ Load average       : 0.03, 0.03, 0.00
+ OS                 : Debian GNU/Linux 11
+ Arch               : x86_64 (64 Bit)
+ Kernel             : 6.7.9-bbrplus
+ TCP CC             : bbrplus
+ Virtualization     : KVM
+ IPv4/IPv6          : ✓ Online / ✓ Online
+ Organization       : AS215026 Alessandro Accorsi trading as Len Service SRL
+ Location           : Maastricht / NL
+ Region             : Limburg
+----------------------------------------------------------------------
+ I/O Speed(1st run) : 535 MB/s
+ I/O Speed(2nd run) : 554 MB/s
+ I/O Speed(3rd run) : 557 MB/s
+ I/O Speed(average) : 548.7 MB/s
+----------------------------------------------------------------------
+ Node Name        Upload Speed      Download Speed      Latency     
+ Speedtest.net    7059.31 Mbps      8893.20 Mbps        0.14 ms     
+ Paris, FR        14209.07 Mbps     11372.11 Mbps       11.83 ms    
+ Amsterdam, NL    6778.22 Mbps      9456.33 Mbps        8.48 ms     
+ Shanghai, CN     1137.47 Mbps      0.09 Mbps           273.99 ms   
+ Hong Kong, CN    351.31 Mbps       1935.26 Mbps        251.26 ms   
+ Singapore, SG    59.44 Mbps        32.18 Mbps          209.10 ms   
+ Tokyo, JP        1009.77 Mbps      3627.02 Mbps        211.80 ms   
+----------------------------------------------------------------------
+ Finished in        : 3 min 17 sec
+ Timestamp          : 2025-08-22 23:10:19 CST
+----------------------------------------------------------------------
+
+```
+
+
+
+## 补充 改好了一台网卡 10G口子  除了机械拉跨 其他无需多言了
 
 ```
 --------------------- A Bench Script By spiritlhl ----------------------
