@@ -10,6 +10,14 @@ cover: https://picup.ikuyo.de/i/2025/08/22/1755852579089.png
 
 ## 省流： 石头盘  说好的10G口子 变成螃蟹8139 员工休假说，真假火车嘴
 
+
+```
+I/O Speed(1st run) : 17.1 MB/s
+I/O Speed(2nd run) : 14.7 MB/s
+我们walehost太牛啦
+```
+
+
 ```
 root@assdadad8d19:/home# wget -qO- bench.sh | bash
 -------------------- A Bench.sh Script By Teddysun -------------------
