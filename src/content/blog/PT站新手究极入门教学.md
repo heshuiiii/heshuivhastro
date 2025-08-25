@@ -1,8 +1,9 @@
 ---
-title: "PT站新手究极入门教学"
-categories: "服务器"
-tags: ['服务器']
-id: "07c7c7b892d7bf5d"
+title: PT站新手究极入门教学
+categories: 服务器
+tags:
+  - 服务器
+id: 07c7c7b892d7bf5d
 date: 2024-02-14 09:15:26
 cover: ""
 ---
@@ -183,7 +184,7 @@ PT站资源通常是大站点流向小站点 小站点就用 https://github.com/
 
 家庭宽带上传速度太慢？还有可能被 运营商QOS 关停
 
-```bash <(wget -qO- https://raw.githubusercontent.com/heshuiiii/Dedicated-Seedbox/refs/heads/main/Install.sh) -u 用户名 -p 密码 -c -1 -q 4.3.9 -l v1.2.19```  
+```bash <(wget -qO- https://raw.githubusercontent.com/heshuiiii/Dedicated-Seedbox/refs/heads/main/Install.sh) -u 用户名 -p 密码 -c -1 -q 4.3.9 -l v1.2.20```  
 
 
 
