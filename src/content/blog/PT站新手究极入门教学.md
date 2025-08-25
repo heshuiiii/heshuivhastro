@@ -194,6 +194,13 @@ PT站资源通常是大站点流向小站点 小站点就用 https://github.com/
 使用这个命令安装BBRPLUS 体验比原版好像要好那么一点点
 
 ```wget -O tcpx.sh "https://github.com/ylx2016/Linux-NetSpeed/raw/master/tcpx.sh" && chmod +x tcpx.sh && ./tcpx.sh``` 
+```
+wget -O tcp.sh "https://git.io/coolspeeda" && chmod +x tcp.sh && ./tcp.sh
+
+
+```
+
+
 
 
 
