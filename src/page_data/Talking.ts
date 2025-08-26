@@ -2,14 +2,19 @@ export default {
   api: '',
   data: [
     {
+      "date": "2025-08-27 03:14:45",
+      "tags": [],
+      "content": "啊想死"
+    },
+    {
       "date": "2025-08-25 14:20:47",
       "tags": [],
-      "content": "上了wale还想上dedirock,不能如其名rock般的硬盘吧（"
+      "content": "ä¸äºwaleè¿æ³ä¸dedirock,ä¸è½å¦å¶årockè¬çç¡¬çå§ï¼"
     },
     {
       "date": "2025-08-22 21:58:08",
       "tags": [],
-      "content": "walehost开车"
+      "content": "walehostå¼è½¦"
     }
   ]
 }
