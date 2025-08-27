@@ -3,7 +3,7 @@ title: HostDzire SFO
 categories: 服务器
 tags:
   - 服务器
-id: ""
+id: HostDziresfo
 date: 2025-08-21 16:58:00
 cover: ""
 ---
