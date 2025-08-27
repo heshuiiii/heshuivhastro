@@ -2,6 +2,11 @@ export default {
   api: '',
   data: [
     {
+      "date": "2025-08-28 03:42:42",
+      "tags": [],
+      "content": "早点完蛋算了哈哈哈哈哈<p class=\"vh-img-flex\"><img src=\"https://picup.ikuyo.de/i/2025/08/28/1000003932.jpg\"></p>"
+    },
+    {
       "date": "2025-08-27 15:51:40",
       "tags": [],
       "content": "就很想把这charityhost这机子卖掉"
