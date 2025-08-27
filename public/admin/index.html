@@ -15,7 +15,8 @@
       const random = Math.random().toString(36).substring(2, 8);
       return `post-${timestamp}`;
     }
-
+    // return `post-${timestamp}-${random}`;
+    
     // 等待DOM加载完成
     document.addEventListener('DOMContentLoaded', function() {
       // 注册preSave事件监听器
