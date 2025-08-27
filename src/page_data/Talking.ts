@@ -14,17 +14,17 @@ export default {
     {
       "date": "2025-08-27 03:14:45",
       "tags": [],
-      "content": "åæ³æ­»"
+      "content": "啊想死"
     },
     {
       "date": "2025-08-25 14:20:47",
       "tags": [],
-      "content": "Ã¤Â¸ÂÃ¤ÂºÂwaleÃ¨Â¿ÂÃ¦ÂÂ³Ã¤Â¸Âdedirock,Ã¤Â¸ÂÃ¨ÂÂ½Ã¥Â¦ÂÃ¥ÂÂ¶Ã¥ÂÂrockÃ¨ÂÂ¬Ã§ÂÂÃ§Â¡Â¬Ã§ÂÂÃ¥ÂÂ§Ã¯Â¼Â"
+      "content": "想买dedirock不能跟rock一样吧"
     },
     {
       "date": "2025-08-22 21:58:08",
       "tags": [],
-      "content": "walehostÃ¥Â¼ÂÃ¨Â½Â¦"
+      "content": "walehost开机"
     }
   ]
 }
