@@ -9,6 +9,7 @@ if (!isAuthenticated) {
 }
 ---
 
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -377,6 +378,35 @@ if (!isAuthenticated) {
                 status.classList.remove('show');
             }, 5000);
         }
+
+        // 修复的编码函数
+        function stringToBase64(str) {
+            // 使用 TextEncoder 来正确处理 UTF-8 编码
+            const encoder = new TextEncoder();
+            const bytes = encoder.encode(str);
+            let binary = '';
+            for (let i = 0; i < bytes.length; i++) {
+                binary += String.fromCharCode(bytes[i]);
+            }
+            return btoa(binary);
+        }
+
+        // 修复的解码函数
+        function base64ToString(base64) {
+            try {
+                const binary = atob(base64);
+                const bytes = new Uint8Array(binary.length);
+                for (let i = 0; i < binary.length; i++) {
+                    bytes[i] = binary.charCodeAt(i);
+                }
+                const decoder = new TextDecoder('utf-8');
+                return decoder.decode(bytes);
+            } catch (error) {
+                // 如果解码失败，可能是旧的编码格式，尝试直接解码
+                console.warn('Base64 decode failed, trying fallback:', error);
+                return atob(base64);
+            }
+        }
         
         async function updateTalkingFile(newItem, config) {
             try {
@@ -393,7 +423,8 @@ if (!isAuthenticated) {
                 }
                 
                 const fileData = await getResponse.json();
-                const currentContent = atob(fileData.content);
+                // 使用修复的解码函数
+                const currentContent = base64ToString(fileData.content);
                 
                 // 2. 解析当前内容并添加新项
                 const dataMatch = currentContent.match(/data:\s*\[([\s\S]*?)\n\s*\]/);
@@ -423,7 +454,7 @@ if (!isAuthenticated) {
                     );
                 }
                 
-                // 3. 提交更新
+                // 3. 提交更新 - 使用修复的编码函数
                 const updateResponse = await fetch(`https://api.github.com/repos/${config.repoPath}/contents/${config.filePath}`, {
                     method: 'PUT',
                     headers: {
@@ -433,7 +464,7 @@ if (!isAuthenticated) {
                     },
                     body: JSON.stringify({
                         message: `Add new talking: ${newItem.content.replace(/<[^>]*>/g, '').substring(0, 30)}...`,
-                        content: btoa(unescape(encodeURIComponent(newContent))),
+                        content: stringToBase64(newContent), // 使用修复的编码函数
                         sha: fileData.sha,
                         branch: 'main' // 改为你的默认分支，如果是 'master' 请修改
                     })
