@@ -13,7 +13,7 @@
     function generateId() {
       const timestamp = Date.now().toString();
       const random = Math.random().toString(36).substring(2, 8);
-      return `post-${timestamp}-${random}`;
+      return `post-${timestamp}`;
     }
 
     // 等待DOM加载完成
