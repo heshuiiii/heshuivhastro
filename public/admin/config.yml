@@ -22,16 +22,16 @@ collections:
         widget: "select"
         options: 
           - "服务器"
-          - "技术"
+          - "动画"
           - "生活"
           - "教程"
           - "工具"
-        default: "技术"
+        default: ""
         required: true
       - label: "标签"
         name: "tags"
         widget: "list"
-        default: ["技术"]
+        default: [""]
         allow_add: true
         collapsed: false
         field: {label: "标签", name: "tag", widget: "string"}
