@@ -34,6 +34,7 @@ collections:
         default: [""]
         allow_add: true
         collapsed: false
+        required: false
         field: {label: "标签", name: "tag", widget: "string"}
       - label: "文章ID"
         name: "id"
