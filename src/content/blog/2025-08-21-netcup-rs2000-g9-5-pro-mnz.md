@@ -3,7 +3,7 @@ title: "Netcup RS2000 G9.5 Pro MNZ "
 categories: 服务器
 tags:
   - 服务器
-id: mnz2000
+id: post-1756318360885
 date: 2025-08-21 16:56:00
 cover: ""
 ---
