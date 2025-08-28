@@ -2,6 +2,11 @@ export default {
   api: '',
   data: [
     {
+      "date": "2025-08-28 22:27:10",
+      "tags": [],
+      "content": "😡😡😡\n<p class=\"vh-img-flex\"><img src=\"https://picup.ikuyo.de/i/2025/08/28/1000003942.jpg\"></p>"
+    },
+    {
       "date": "2025-08-28 17:35:17",
       "tags": [],
       "content": "暴雨预警么，有点意思"
