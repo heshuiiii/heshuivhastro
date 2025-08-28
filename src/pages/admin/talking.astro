@@ -103,6 +103,41 @@ if (!isAuthenticated) {
             resize: vertical;
         }
         
+        .content-toolbar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .toolbar-btn {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .toolbar-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+        
+        .toolbar-btn.image-btn {
+            background: linear-gradient(45deg, #ff9800, #f57c00);
+        }
+        
+        .toolbar-btn.image-btn:hover {
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
+        }
+        
         .tag-input {
             display: flex;
             gap: 10px;
@@ -234,6 +269,77 @@ if (!isAuthenticated) {
             margin-top: 5px;
         }
         
+        /* 模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            animation: modalSlideIn 0.3s ease;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .modal h3 {
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .modal-btn {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-btn.confirm {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+        }
+        
+        .modal-btn.cancel {
+            background: #f0f0f0;
+            color: #666;
+        }
+        
+        .modal-btn:hover {
+            transform: translateY(-2px);
+        }
+        
         @keyframes slideIn {
             from {
                 opacity: 0;
@@ -276,6 +382,15 @@ if (!isAuthenticated) {
                 flex-direction: column;
                 align-items: stretch;
             }
+            
+            .content-toolbar {
+                justify-content: center;
+            }
+            
+            .modal-content {
+                margin: 20% auto;
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -291,8 +406,13 @@ if (!isAuthenticated) {
             <form id="talkingForm">
                 <div class="form-group">
                     <label for="content">内容</label>
+                    <div class="content-toolbar">
+                        <button type="button" class="toolbar-btn image-btn" onclick="openImageModal()">
+                            📷 插入图片
+                        </button>
+                    </div>
                     <textarea id="content" placeholder="写下你的想法..." required></textarea>
-                    <div class="help-text">支持 HTML 标签，图片请用 &lt;p class="vh-img-flex"&gt;&lt;img src="..."&gt;&lt;/p&gt; 包裹</div>
+                    <div class="help-text">支持 HTML 标签，点击上方按钮插入图片</div>
                 </div>
                 
                 <div class="form-group">
@@ -332,6 +452,27 @@ if (!isAuthenticated) {
         </div>
     </div>
 
+    <!-- 图片插入模态框 -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <h3>📷 插入图片</h3>
+            <div class="form-group">
+                <label for="imageUrl">图片链接</label>
+                <input type="url" id="imageUrl" placeholder="https://example.com/image.jpg" required>
+                <div class="help-text">请输入完整的图片URL地址</div>
+            </div>
+            <div class="form-group">
+                <label for="imageAlt">图片描述（可选）</label>
+                <input type="text" id="imageAlt" placeholder="图片描述">
+                <div class="help-text">用于SEO和无障碍访问</div>
+            </div>
+            <div class="modal-buttons">
+                <button type="button" class="modal-btn cancel" onclick="closeImageModal()">取消</button>
+                <button type="button" class="modal-btn confirm" onclick="insertImage()">插入</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         let tags = [];
         
@@ -366,6 +507,63 @@ if (!isAuthenticated) {
             if (e.key === 'Enter') {
                 e.preventDefault();
                 addTag();
+            }
+        });
+        
+        // 图片插入功能
+        function openImageModal() {
+            document.getElementById('imageModal').style.display = 'block';
+            document.getElementById('imageUrl').focus();
+        }
+        
+        function closeImageModal() {
+            document.getElementById('imageModal').style.display = 'none';
+            document.getElementById('imageUrl').value = '';
+            document.getElementById('imageAlt').value = '';
+        }
+        
+        function insertImage() {
+            const imageUrl = document.getElementById('imageUrl').value.trim();
+            const imageAlt = document.getElementById('imageAlt').value.trim();
+            
+            if (!imageUrl) {
+                alert('请输入图片链接');
+                return;
+            }
+            
+            // 构建图片HTML代码
+            const altAttr = imageAlt ? ` alt="${imageAlt}"` : '';
+            const imageHtml = `<p class="vh-img-flex"><img src="${imageUrl}"${altAttr}></p>`;
+            
+            // 插入到文本框中
+            const contentTextarea = document.getElementById('content');
+            const cursorPos = contentTextarea.selectionStart;
+            const textBefore = contentTextarea.value.substring(0, cursorPos);
+            const textAfter = contentTextarea.value.substring(contentTextarea.selectionEnd);
+            
+            // 在光标位置插入图片代码
+            contentTextarea.value = textBefore + imageHtml + textAfter;
+            
+            // 移动光标到插入内容的末尾
+            contentTextarea.selectionStart = contentTextarea.selectionEnd = cursorPos + imageHtml.length;
+            contentTextarea.focus();
+            
+            closeImageModal();
+        }
+        
+        // 点击模态框背景关闭
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                closeImageModal();
+            }
+        }
+        
+        // 模态框中的回车键处理
+        document.getElementById('imageUrl').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                insertImage();
             }
         });
         
