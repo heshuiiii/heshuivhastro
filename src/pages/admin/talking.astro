@@ -407,7 +407,7 @@ if (!isAuthenticated) {
                 <div class="form-group">
                     <label for="content">内容</label>
                     <div class="content-toolbar">
-                        <button type="button" class="toolbar-btn image-btn" onclick="openImageModal()">
+                        <button type="button" class="toolbar-btn image-btn" id="insertImageBtn">
                             📷 插入图片
                         </button>
                     </div>
@@ -467,8 +467,8 @@ if (!isAuthenticated) {
                 <div class="help-text">用于SEO和无障碍访问</div>
             </div>
             <div class="modal-buttons">
-                <button type="button" class="modal-btn cancel" onclick="closeImageModal()">取消</button>
-                <button type="button" class="modal-btn confirm" onclick="insertImage()">插入</button>
+                <button type="button" class="modal-btn cancel" id="cancelImageBtn">取消</button>
+                <button type="button" class="modal-btn confirm" id="confirmImageBtn">插入</button>
             </div>
         </div>
     </div>
@@ -511,16 +511,31 @@ if (!isAuthenticated) {
         });
         
         // 图片插入功能
+        document.getElementById('insertImageBtn').addEventListener('click', function() {
+            openImageModal();
+        });
+        
         function openImageModal() {
-            document.getElementById('imageModal').style.display = 'block';
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'block';
             document.getElementById('imageUrl').focus();
         }
         
         function closeImageModal() {
-            document.getElementById('imageModal').style.display = 'none';
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
             document.getElementById('imageUrl').value = '';
             document.getElementById('imageAlt').value = '';
         }
+        
+        // 模态框按钮事件监听
+        document.getElementById('cancelImageBtn').addEventListener('click', function() {
+            closeImageModal();
+        });
+        
+        document.getElementById('confirmImageBtn').addEventListener('click', function() {
+            insertImage();
+        });
         
         function insertImage() {
             const imageUrl = document.getElementById('imageUrl').value.trim();
