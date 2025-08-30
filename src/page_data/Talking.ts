@@ -2,6 +2,11 @@ export default {
   api: '',
   data: [
     {
+      "date": "2025-08-31 01:43:27",
+      "tags": [],
+      "content": "这ups一年派不上两次用场\n<p class=\"vh-img-flex\"><img src=\"https://picup.ikuyo.de/i/2025/08/31/1756575771646.png\"></p>"
+    },
+    {
       "date": "2025-08-31 01:42:08",
       "tags": [],
       "content": "目前决定卖掉一些机子\n<p class=\"vh-img-flex\"><img src=\"https://picup.ikuyo.de/i/2025/08/31/1756575708601.png\"></p>"
