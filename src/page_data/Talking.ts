@@ -2,6 +2,11 @@ export default {
   api: '',
   data: [
     {
+      "date": "2025-09-03 02:10:04",
+      "tags": [],
+      "content": "抢到了一台onlyservers的大机器，晚些时候写出来，太棒了"
+    },
+    {
       "date": "2025-09-02 00:13:12",
       "tags": [],
       "content": "是的孩子们，16T的机器我驾驭不了<p class=\"vh-img-flex\"><img src=\"https://picup.ikuyo.de/i/2025/09/02/1756743166482.png\"></p>"
