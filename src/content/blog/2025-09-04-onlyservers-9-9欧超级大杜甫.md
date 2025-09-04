@@ -12,7 +12,7 @@ onlyservers .dan_onlyservers于2025年9月2日在Lowendtalk 发布了 ** FLASH S
 
 
 
-## - 原帖内容：
+##  原帖内容：
 ```
 We are releasing 100 instant buy servers with various specifications, first month just $9.99 with no minimum term.
 
