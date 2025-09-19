@@ -96,8 +96,6 @@ YABS completed in 12 min 33 sec
 
 
 ## 官方描述配置
-
-| 项目              | 配置                                                                |
 |-------------------|---------------------------------------------------------------------|
 | **System Variant** | R640 8-Bay/10-Bay 2.5" - No NVME                                   |
 | **Processor**      | 2 x Intel Xeon Platinum 8180 2.50GHz 28-Core CPU                   |
