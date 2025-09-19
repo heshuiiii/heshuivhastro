@@ -9,16 +9,19 @@ cover: https://picup.ikuyo.de/i/2025/09/19/1758267521211.png
 ---
 ## 官方描述配置
 ```
-System Variant	R640 8-Bay/10-Bay 2.5" - No NVME
-Processor	2 x Intel Xeon Platinum 8180 2.50GHz 28-Core CPU
-Memory	768GB DDR4 Memory
-2.5 inch Drives	2 x 1.92TB SAS SSD 2.5" 12Gbps Read Intensive
-Raid Controller	H730p 2GB Mini Mono Raid Controller
-Port Speed	25 GBit/s Network Port
-Inclusive Traffic	1000TB Data Per Month
-Operating System	Ubuntu 24.04 LTS
-IP Address Allocation	Single IP Only (/31 Subnet)
-Payment Term	Monthly
+| 项目              | 配置                                                                 |
+|-------------------|----------------------------------------------------------------------|
+| **System Variant** | R640 8-Bay/10-Bay 2.5" - No NVME                                    |
+| **Processor**      | 2 x Intel Xeon Platinum 8180 2.50GHz 28-Core CPU                    |
+| **Memory**         | 768GB DDR4 Memory                                                   |
+| **2.5 inch Drives**| 2 x 1.92TB SAS SSD 2.5" 12Gbps Read Intensive                       |
+| **Raid Controller**| H730p 2GB Mini Mono Raid Controller                                 |
+| **Port Speed**     | 25 GBit/s Network Port                                              |
+| **Inclusive Traffic** | 1000TB Data Per Month                                            |
+| **Operating System** | Ubuntu 24.04 LTS                                                  |
+| **IP Address Allocation** | Single IP Only (/31 Subnet)                                  |
+| **Payment Term**   | Monthly                                                            |
+
 
 ```
 
