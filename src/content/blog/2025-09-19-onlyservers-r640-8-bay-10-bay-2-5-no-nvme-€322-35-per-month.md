@@ -7,6 +7,94 @@ id: post-1758267690998-vugjbk
 date: 2025-09-19 15:37:00
 cover: https://picup.ikuyo.de/i/2025/09/19/1758267521211.png
 ---
+
+## yabs
+```
+# ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## #
+#              Yet-Another-Bench-Script              #
+#                     v2025-04-20                    #
+# https://github.com/masonr/yet-another-bench-script #
+# ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## #
+
+Fri Sep 19 11:27:08 PM CST 2025
+
+Basic System Information:
+---------------------------------
+Uptime     : 0 days, 0 hours, 0 minutes
+Processor  : Intel(R) Xeon(R) Platinum 8180 CPU @ 2.50GHz
+CPU cores  : 112 @ 2500.000 MHz
+AES-NI     : ✔ Enabled
+VM-x/AMD-V : ✔ Enabled
+RAM        : 755.5 GiB
+Swap       : 0.0 KiB
+Disk       : 3.4 TiB
+Distro     : Debian GNU/Linux 12 (bookworm)
+Kernel     : 6.1.0-39-amd64
+VM Type    : NONE
+IPv4/IPv6  : ✔ Online / ✔ Online
+
+IPv6 Network Information:
+---------------------------------
+ISP        : Packet Star Networks UK
+ASN        : AS249 European Network
+Host       : Packet Star Networks Limited
+Location   : Fareham, England (ENG)
+Country    : United Kingdom
+
+fio Disk Speed Tests (Mixed R/W 50/50) (Partition /dev/sda2):
+---------------------------------
+Block Size | 4k            (IOPS) | 64k           (IOPS)
+  ------   | ---            ----  | ----           ---- 
+Read       | 105.75 MB/s  (26.4k) | 1.37 GB/s    (21.5k)
+Write      | 106.02 MB/s  (26.5k) | 1.38 GB/s    (21.6k)
+Total      | 211.77 MB/s  (52.9k) | 2.76 GB/s    (43.1k)
+           |                      |                     
+Block Size | 512k          (IOPS) | 1m            (IOPS)
+  ------   | ---            ----  | ----           ---- 
+Read       | 1.73 GB/s     (3.3k) | 1.78 GB/s     (1.7k)
+Write      | 1.82 GB/s     (3.5k) | 1.89 GB/s     (1.8k)
+Total      | 3.56 GB/s     (6.9k) | 3.67 GB/s     (3.5k)
+
+iperf3 Network Speed Tests (IPv4):
+---------------------------------
+Provider        | Location (Link)           | Send Speed      | Recv Speed      | Ping           
+-----           | -----                     | ----            | ----            | ----           
+Clouvider       | London, UK (10G)          | 8.09 Gbits/sec  | 7.60 Gbits/sec  | 1.43 ms        
+Eranium         | Amsterdam, NL (100G)      | 23.3 Gbits/sec  | 21.3 Gbits/sec  | 9.14 ms        
+Uztelecom       | Tashkent, UZ (10G)        | 2.34 Gbits/sec  | 2.02 Gbits/sec  | 98.9 ms        
+Leaseweb        | Singapore, SG (10G)       | 1.01 Gbits/sec  | 1.10 Gbits/sec  | --             
+Clouvider       | Los Angeles, CA, US (10G) | 988 Mbits/sec   | 1.30 Gbits/sec  | 138 ms         
+Leaseweb        | NYC, NY, US (10G)         | 3.20 Gbits/sec  | 2.68 Gbits/sec  | 71.1 ms        
+Edgoo           | Sao Paulo, BR (1G)        | 1.36 Gbits/sec  | 931 Mbits/sec   | 198 ms         
+
+iperf3 Network Speed Tests (IPv6):
+---------------------------------
+Provider        | Location (Link)           | Send Speed      | Recv Speed      | Ping           
+-----           | -----                     | ----            | ----            | ----           
+Clouvider       | London, UK (10G)          | 8.30 Gbits/sec  | 6.15 Gbits/sec  | 1.49 ms        
+Eranium         | Amsterdam, NL (100G)      | 23.0 Gbits/sec  | 22.7 Gbits/sec  | 9.15 ms        
+Uztelecom       | Tashkent, UZ (10G)        | 2.20 Gbits/sec  | 1.82 Gbits/sec  | 98.7 ms        
+Leaseweb        | Singapore, SG (10G)       | 1.05 Gbits/sec  | 837 Mbits/sec   | 158 ms         
+Clouvider       | Los Angeles, CA, US (10G) | 1.23 Gbits/sec  | 1.26 Gbits/sec  | 138 ms         
+Leaseweb        | NYC, NY, US (10G)         | 1.32 Gbits/sec  | 2.64 Gbits/sec  | 71.1 ms        
+Edgoo           | Sao Paulo, BR (1G)        | 603 Mbits/sec   | 832 Mbits/sec   | 189 ms         
+
+Geekbench 6 Benchmark Test:
+---------------------------------
+Test            | Value                         
+                |                               
+Single Core     | 1280                          
+Multi Core      | 11393                         
+Full Test       | https://browser.geekbench.com/v6/cpu/13918676
+
+YABS completed in 12 min 33 sec
+
+
+```
+
+
+
+
 ## 官方描述配置
 ```
 | 项目              | 配置                                                                 |
