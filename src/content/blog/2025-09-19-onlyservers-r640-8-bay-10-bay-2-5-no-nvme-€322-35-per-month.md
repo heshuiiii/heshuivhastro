@@ -96,7 +96,7 @@ YABS completed in 12 min 33 sec
 
 
 ## 官方描述配置
-```
+
 | 项目              | 配置                                                                |
 |-------------------|---------------------------------------------------------------------|
 | **System Variant** | R640 8-Bay/10-Bay 2.5" - No NVME                                   |
@@ -111,7 +111,7 @@ YABS completed in 12 min 33 sec
 | **Payment Term**   | Monthly                                                            |
 
 
-```
+
 
 
 
