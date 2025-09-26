@@ -98,8 +98,8 @@ export default {
   Comment: {
     // Twikoo 评论
     Twikoo: {
-      enable: false,
-      envId: ''
+      enable: true,
+      envId: 'http://152.53.195.205:8072/'
     },
     // Waline 评论
     Waline: {
