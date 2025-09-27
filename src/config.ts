@@ -99,7 +99,7 @@ export default {
     // Twikoo 评论
     Twikoo: {
       enable: true,
-      envId: 'http://152.53.195.205:8072/'
+      envId: 'http://152.53.195.205:8072'
     },
     // Waline 评论
     Waline: {
