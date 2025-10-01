@@ -2,9 +2,9 @@ backend:
   name: github
   repo: heshuiiii/heshuivhastro
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
-  site_id: warm-cat-3188b2  # ← 添加这一行（使用 site name）
+  # base_url: https://api.netlify.com
+  # auth_endpoint: auth
+  site_id: warm-cat-3188b2
 
 # 或者使用完整的 UUID:
 # site_id: c2bc487a-a362-4141-a46a-c83ce77bd313
