@@ -2,8 +2,6 @@ backend:
   name: github
   repo: heshuiiii/heshuivhastro
   branch: main
-  base_url: https://api.netlify.com  # OAuth 代理
-  auth_endpoint: auth                  # OAuth 端点
 
 media_folder: "public/images"
 public_folder: "/images"
