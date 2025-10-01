@@ -1,6 +1,8 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: heshuiiii/heshuivhastro  # 改成你的 GitHub 仓库
   branch: main
+  
 media_folder: "public/images"
 public_folder: "/images"
 locale: 'zh_Hans'
