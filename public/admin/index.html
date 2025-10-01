@@ -6,7 +6,6 @@
   <title>博客管理后台</title>
   
   <style>
-    /* 重置和基础样式 */
     * {
       box-sizing: border-box;
     }
@@ -17,12 +16,10 @@
       padding: 0;
     }
     
-    /* CMS根容器样式覆盖 */
     .nc-root {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif !important;
     }
     
-    /* 移动端响应式优化 */
     @media (max-width: 768px) {
       .nc-root {
         font-size: 14px !important;
@@ -37,7 +34,6 @@
         min-width: 40px !important;
         min-height: 40px !important;
         padding: 8px !important;
-        font-size: 14px !important;
       }
       
       .nc-controlPane-widget input[type="text"], 
@@ -46,40 +42,14 @@
         font-size: 16px !important;
         padding: 12px !important;
         border-radius: 8px !important;
-        border: 2px solid #e5e7eb !important;
         width: 100% !important;
-        transition: all 0.2s ease !important;
-      }
-      
-      .nc-controlPane-widget input[type="text"]:focus, 
-      .nc-controlPane-widget textarea:focus, 
-      .nc-controlPane-widget select:focus {
-        border-color: #3b82f6 !important;
-        outline: none !important;
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
       }
       
       .nc-entryEditor {
         padding: 16px !important;
       }
-      
-      .nc-entryEditor-widget {
-        margin-bottom: 16px !important;
-      }
-      
-      .nc-sidebar {
-        width: 100% !important;
-        position: relative !important;
-      }
-      
-      .nc-entryEditor-widgetTop button {
-        padding: 8px 16px !important;
-        font-size: 14px !important;
-        min-height: 40px !important;
-      }
     }
     
-    /* 预览容器样式 */
     .preview-container {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
       line-height: 1.6;
@@ -108,13 +78,6 @@
     .preview-title {
       font-size: 2rem;
       font-weight: bold;
-      margin: 0 0 8px 0;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    
-    .preview-subtitle {
-      font-size: 1.1rem;
-      opacity: 0.9;
       margin: 0;
     }
     
@@ -124,23 +87,11 @@
     
     .info-grid {
       display: grid;
-      grid-template-columns: 1fr;
       gap: 12px;
       background: #f8fafc;
       padding: 20px;
       border-radius: 12px;
       margin-bottom: 24px;
-      border: 1px solid #e2e8f0;
-    }
-    
-    @media (min-width: 640px) {
-      .info-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      
-      .info-item-full {
-        grid-column: 1 / -1;
-      }
     }
     
     .info-item {
@@ -148,76 +99,19 @@
       justify-content: space-between;
       align-items: center;
       padding: 8px 0;
-      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
     }
     
     .info-label {
       font-weight: 600;
       color: #475569;
-      font-size: 0.9rem;
     }
     
     .info-value {
-      font-family: 'SF Mono', Consolas, monospace;
+      font-family: monospace;
       color: #1e293b;
-      font-size: 0.875rem;
       background: white;
       padding: 4px 8px;
       border-radius: 6px;
-      border: 1px solid #e2e8f0;
-      word-break: break-all;
-    }
-    
-    .info-value.category {
-      background: #dbeafe;
-      color: #1e40af;
-      border-color: #93c5fd;
-    }
-    
-    .info-value.custom-id {
-      background: #fef3c7;
-      color: #92400e;
-      border-color: #fbbf24;
-    }
-    
-    .info-value.auto-id {
-      background: #dcfce7;
-      color: #166534;
-      border-color: #86efac;
-    }
-    
-    .tags-container {
-      margin-bottom: 24px;
-    }
-    
-    .tags-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 8px;
-    }
-    
-    .tag-item {
-      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-      color: white;
-      padding: 4px 12px;
-      border-radius: 16px;
-      font-size: 0.875rem;
-      font-weight: 500;
-      box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
-    }
-    
-    .no-tags {
-      color: #9ca3af;
-      font-style: italic;
-    }
-    
-    .content-divider {
-      height: 2px;
-      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-      border: none;
-      margin: 24px 0;
-      border-radius: 1px;
     }
     
     .article-content {
@@ -226,88 +120,21 @@
     
     .article-content h1 {
       font-size: 1.875rem;
-      font-weight: bold;
       margin: 24px 0 16px 0;
       color: #111827;
-      border-bottom: 2px solid #3b82f6;
-      padding-bottom: 8px;
     }
     
     .article-content h2 {
       font-size: 1.5rem;
-      font-weight: 600;
       margin: 20px 0 12px 0;
       color: #1f2937;
-    }
-    
-    .article-content h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin: 16px 0 8px 0;
-      color: #374151;
-    }
-    
-    .article-content p {
-      margin-bottom: 16px;
     }
     
     .article-content code {
       background: #f3f4f6;
       padding: 2px 6px;
       border-radius: 4px;
-      font-family: 'SF Mono', Consolas, monospace;
-      font-size: 0.875rem;
-    }
-    
-    .article-content pre {
-      background: #1f2937;
-      color: #f9fafb;
-      padding: 16px;
-      border-radius: 8px;
-      overflow-x: auto;
-      margin: 16px 0;
-    }
-    
-    .article-content blockquote {
-      border-left: 4px solid #3b82f6;
-      padding-left: 16px;
-      margin: 16px 0;
-      color: #6b7280;
-      font-style: italic;
-    }
-    
-    .empty-content {
-      color: #9ca3af;
-      font-style: italic;
-      text-align: center;
-      padding: 40px 20px;
-      background: #f9fafb;
-      border-radius: 8px;
-    }
-    
-    .preview-footer {
-      background: #f8fafc;
-      padding: 16px 24px;
-      border-top: 1px solid #e5e7eb;
-      text-align: center;
-      font-size: 0.875rem;
-      color: #6b7280;
-    }
-    
-    .id-status-indicator {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      margin-right: 6px;
-    }
-    
-    .id-status-auto {
-      background-color: #10b981;
-    }
-    
-    .id-status-custom {
-      background-color: #f59e0b;
+      font-family: monospace;
     }
   </style>
 </head>
@@ -315,33 +142,6 @@
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
     // 工具函数
-    function parseMarkdown(markdown) {
-      if (!markdown) return '';
-      
-      let html = markdown
-        .replace(/^### (.*$)/gm, '<h3>$1</h3>')
-        .replace(/^## (.*$)/gm, '<h2>$1</h2>')
-        .replace(/^# (.*$)/gm, '<h1>$1</h1>')
-        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\*(.*?)\*/g, '<em>$1</em>')
-        .replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>')
-        .replace(/`(.*?)`/g, '<code>$1</code>')
-        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
-        .replace(/^> (.*)$/gm, '<blockquote>$1</blockquote>')
-        .replace(/^\* (.*)$/gm, '<li>$1</li>')
-        .replace(/^- (.*)$/gm, '<li>$1</li>')
-        .replace(/\n\n/g, '</p><p>')
-        .replace(/\n/g, '<br>');
-      
-      html = html.replace(/(<li>.*<\/li>)/gs, '<ul>$1</ul>');
-      
-      if (html && !html.startsWith('<')) {
-        html = '<p>' + html + '</p>';
-      }
-      
-      return html;
-    }
-
     function generateId() {
       const timestamp = Date.now().toString();
       const random = Math.random().toString(36).substring(2, 8);
@@ -355,133 +155,27 @@
       return trimmed === '' || trimmed === '""' || trimmed === "''" || trimmed === 'undefined' || trimmed === 'null';
     }
 
-    function isAutoGeneratedId(id) {
-      if (!id || typeof id !== 'string') return false;
-      return /^post-\d{13}-[a-z0-9]{6}$/.test(id.trim());
-    }
-    
-    function formatDate(date) {
-      if (!date) return '未设置';
-      try {
-        return new Date(date).toLocaleString('zh-CN', {
-          year: 'numeric',
-          month: '2-digit',
-          day: '2-digit',
-          hour: '2-digit',
-          minute: '2-digit',
-          second: '2-digit'
-        });
-      } catch (e) {
-        return '日期格式错误';
-      }
-    }
-
-    function renderTags(tags) {
-      if (!tags || !Array.isArray(tags) || tags.length === 0) {
-        return '<span class="no-tags">暂无标签</span>';
+    function parseMarkdown(markdown) {
+      if (!markdown) return '';
+      
+      let html = markdown
+        .replace(/^### (.*$)/gm, '<h3>$1</h3>')
+        .replace(/^## (.*$)/gm, '<h2>$1</h2>')
+        .replace(/^# (.*$)/gm, '<h1>$1</h1>')
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        .replace(/`(.*?)`/g, '<code>$1</code>')
+        .replace(/\n\n/g, '</p><p>')
+        .replace(/\n/g, '<br>');
+      
+      if (html && !html.startsWith('<')) {
+        html = '<p>' + html + '</p>';
       }
       
-      return tags
-        .filter(tag => tag && tag.trim())
-        .map(tag => `<span class="tag-item">${tag.trim()}</span>`)
-        .join('');
+      return html;
     }
 
-    function renderIdStatus(id) {
-      if (isEmptyId(id)) {
-        return `
-          <span class="id-status-indicator id-status-auto"></span>
-          <span class="info-value auto-id">将自动生成</span>
-        `;
-      } else if (isAutoGeneratedId(id)) {
-        return `
-          <span class="id-status-indicator id-status-auto"></span>
-          <span class="info-value auto-id">${id}</span>
-        `;
-      } else {
-        return `
-          <span class="id-status-indicator id-status-custom"></span>
-          <span class="info-value custom-id">${id}</span>
-        `;
-      }
-    }
-
-    // 初始化 CMS
-    CMS.init({
-      config: {
-        backend: {
-          name: 'github',
-          repo: 'heshuiiii/heshuivhastro', // 🔴 必须修改！
-          branch: 'main'
-        },
-        media_folder: 'public/images',
-        public_folder: '/images',
-        locale: 'zh_Hans',
-        collections: [
-          {
-            name: 'blog',
-            label: '博客文章',
-            folder: 'src/content/blog',
-            create: true,
-            slug: '{{year}}-{{month}}-{{day}}-{{slug}}',
-            editor: {
-              preview: true
-            },
-            fields: [
-              { label: '标题', name: 'title', widget: 'string', required: true },
-              { 
-                label: '分类', 
-                name: 'categories', 
-                widget: 'select',
-                options: ['服务器', '动画', '生活', '教程', '工具'],
-                default: '',
-                required: true 
-              },
-              { 
-                label: '标签', 
-                name: 'tags', 
-                widget: 'list',
-                default: [''],
-                allow_add: true,
-                collapsed: false,
-                required: false,
-                field: { label: '标签', name: 'tag', widget: 'string' }
-              },
-              { 
-                label: '文章ID', 
-                name: 'id', 
-                widget: 'string',
-                default: '',
-                required: false,
-                hint: '留空将自动生成随机ID'
-              },
-              { 
-                label: '发布日期', 
-                name: 'date', 
-                widget: 'datetime',
-                default: '',
-                date_format: 'YYYY-MM-DD',
-                time_format: 'HH:mm:ss',
-                format: 'YYYY-MM-DD HH:mm:ss',
-                picker_utc: false,
-                required: false
-              },
-              { 
-                label: '封面图片', 
-                name: 'cover', 
-                widget: 'string',
-                default: '',
-                required: false,
-                hint: '输入图片URL或留空'
-              },
-              { label: '正文内容', name: 'body', widget: 'markdown', required: true }
-            ]
-          }
-        ]
-      }
-    });
-
-    // 注册事件监听器
+    // 等待 CMS 加载完成
     setTimeout(() => {
       try {
         // 自动生成ID
@@ -493,7 +187,7 @@
             
             if (isEmptyId(currentId)) {
               const newId = generateId();
-              console.log('Generated new ID:', newId);
+              console.log('Generated ID:', newId);
               return entry.get('data').set('id', newId);
             }
             
@@ -501,79 +195,47 @@
           }
         });
 
-        // 注册预览模板
+        // 预览模板
         CMS.registerPreviewTemplate('blog', ({ entry }) => {
           const title = entry.getIn(['data', 'title']) || '未命名文章';
           const categories = entry.getIn(['data', 'categories']) || '未分类';
-          const tags = entry.getIn(['data', 'tags']);
-          const date = entry.getIn(['data', 'date']);
-          const id = entry.getIn(['data', 'id']);
-          const cover = entry.getIn(['data', 'cover']);
-          const rawBody = entry.getIn(['data', 'body']) || '';
+          const date = entry.getIn(['data', 'date']) || '未设置';
+          const id = entry.getIn(['data', 'id']) || '将自动生成';
+          const body = entry.getIn(['data', 'body']) || '';
 
-          const parsedBody = parseMarkdown(rawBody);
-
-          const html = `
+          return `
             <div class="preview-container">
               <div class="preview-card">
                 <div class="preview-header">
                   <h1 class="preview-title">${title}</h1>
-                  <p class="preview-subtitle">博客文章预览</p>
                 </div>
-                
                 <div class="preview-content">
                   <div class="info-grid">
                     <div class="info-item">
-                      <span class="info-label">📝 文章ID</span>
-                      <div style="display: flex; align-items: center;">
-                        ${renderIdStatus(id)}
-                      </div>
+                      <span class="info-label">📝 ID</span>
+                      <span class="info-value">${id}</span>
                     </div>
                     <div class="info-item">
                       <span class="info-label">📂 分类</span>
-                      <span class="info-value category">${categories}</span>
+                      <span class="info-value">${categories}</span>
                     </div>
-                    <div class="info-item info-item-full">
-                      <span class="info-label">🕒 发布时间</span>
-                      <span class="info-value">${formatDate(date)}</span>
-                    </div>
-                    ${cover ? `
-                      <div class="info-item info-item-full">
-                        <span class="info-label">🖼️ 封面图片</span>
-                        <span class="info-value">${cover}</span>
-                      </div>
-                    ` : ''}
-                  </div>
-
-                  <div class="tags-container">
-                    <div class="info-label" style="margin-bottom: 8px;">🏷️ 标签</div>
-                    <div class="tags-list">
-                      ${renderTags(tags)}
+                    <div class="info-item">
+                      <span class="info-label">🕒 日期</span>
+                      <span class="info-value">${date}</span>
                     </div>
                   </div>
-
-                  <hr class="content-divider">
-
                   <div class="article-content">
-                    ${parsedBody || '<div class="empty-content">正文内容为空</div>'}
+                    ${parseMarkdown(body)}
                   </div>
-                </div>
-
-                <div class="preview-footer">
-                  📊 字数约 ${rawBody.length} 字 • 预计阅读时间 ${Math.max(1, Math.ceil(rawBody.length / 400))} 分钟
-                  <br>
-                  <small>💡 提示：${isEmptyId(id) ? 'ID为空时将自动生成' : isAutoGeneratedId(id) ? 'ID为自动生成格式' : 'ID为自定义格式'}</small>
                 </div>
               </div>
             </div>
           `;
-
-          return html;
         });
 
-        console.log('✅ Blog CMS initialized with GitHub backend!');
+        console.log('✅ CMS initialized');
       } catch (error) {
-        console.error('❌ Error initializing CMS:', error);
+        console.error('❌ Init error:', error);
       }
     }, 1000);
   </script>
