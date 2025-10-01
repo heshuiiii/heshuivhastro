@@ -3,9 +3,36 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="decap-cms-manual-init" content="true" />
   <title>博客管理后台</title>
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    // 手动加载配置文件
+    fetch('/admin/config.yml')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Config file not found');
+        }
+        return response.text();
+      })
+      .then(configYaml => {
+        console.log('Config loaded successfully');
+        // 手动初始化 CMS
+        CMS.init();
+      })
+      .catch(error => {
+        console.error('Failed to load config:', error);
+        document.body.innerHTML = `
+          <div style="padding: 40px; font-family: sans-serif;">
+            <h1>配置加载失败</h1>
+            <p>无法加载 config.yml 文件</p>
+            <p>错误: ${error.message}</p>
+            <p>请检查 <a href="/admin/config.yml" target="_blank">/admin/config.yml</a> 是否可访问</p>
+          </div>
+        `;
+      });
+  </script>
 </body>
 </html>
