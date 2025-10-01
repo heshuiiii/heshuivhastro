@@ -1,11 +1,12 @@
 backend:
   name: github
-  repo: heshuiiii/heshuivhastro  # 改成你的 GitHub 仓库
+  repo: heshuiiii/heshuivhastro  # 🔴 改成你的 GitHub 仓库
   branch: main
-  
+
 media_folder: "public/images"
 public_folder: "/images"
 locale: 'zh_Hans'
+
 collections:
   - name: "blog"
     label: "博客文章"
@@ -47,7 +48,7 @@ collections:
       - label: "发布日期"
         name: "date"
         widget: "datetime"
-        default: "{{now}}"
+        default: ""
         date_format: "YYYY-MM-DD"
         time_format: "HH:mm:ss"
         format: "YYYY-MM-DD HH:mm:ss"
