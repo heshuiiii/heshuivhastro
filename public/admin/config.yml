@@ -2,6 +2,12 @@ backend:
   name: github
   repo: heshuiiii/heshuivhastro
   branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+  site_id: warm-cat-3188b2  # ← 添加这一行（使用 site name）
+
+# 或者使用完整的 UUID:
+# site_id: c2bc487a-a362-4141-a46a-c83ce77bd313
 
 media_folder: "public/images"
 public_folder: "/images"
@@ -20,6 +26,7 @@ collections:
         name: "title"
         widget: "string"
         required: true
+      
       - label: "分类"
         name: "categories"
         widget: "select"
@@ -29,37 +36,38 @@ collections:
           - "生活"
           - "教程"
           - "工具"
-        default: ""
         required: true
+      
       - label: "标签"
         name: "tags"
         widget: "list"
-        default: [""]
-        allow_add: true
-        collapsed: false
         required: false
+        allow_add: true
         field: {label: "标签", name: "tag", widget: "string"}
+      
       - label: "文章ID"
         name: "id"
         widget: "string"
-        default: ""
         required: false
+        default: ""
         hint: "留空将自动生成随机ID"
+      
       - label: "发布日期"
         name: "date"
         widget: "datetime"
+        required: false
         default: ""
+        format: "YYYY-MM-DD HH:mm:ss"
         date_format: "YYYY-MM-DD"
         time_format: "HH:mm:ss"
-        format: "YYYY-MM-DD HH:mm:ss"
-        picker_utc: false
-        required: false
+      
       - label: "封面图片"
         name: "cover"
         widget: "string"
-        default: ""
         required: false
+        default: ""
         hint: "输入图片URL或留空"
+      
       - label: "正文内容"
         name: "body"
         widget: "markdown"
