@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: heshuiiii/heshuivhastro  # 🔴 改成你的 GitHub 仓库
+  repo: heshuiiii/heshuivhastro
   branch: main
 
 media_folder: "public/images"
