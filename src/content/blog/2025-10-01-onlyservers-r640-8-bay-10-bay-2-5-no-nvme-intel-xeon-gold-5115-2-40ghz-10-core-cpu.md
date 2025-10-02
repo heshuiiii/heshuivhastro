@@ -8,6 +8,23 @@ date: 2025-10-02 01:20:00
 cover: https://picup.ikuyo.de/i/2025/10/02/1759339331965.png
 ---
 
+
+| 配置项              | 规格说明                                                                 |
+|---------------------|--------------------------------------------------------------------------|
+| **System Variant**  | R640 8-Bay/10-Bay 2.5" - No NVME                                         |
+| **Processor**       | Intel Xeon Gold 5115 2.40GHz 10-Core CPU                                |
+| **Memory**          | 384GB DDR4 Memory                                                        |
+| **2.5 inch Drives** | 2 × 1.92TB SAS SSD 2.5" 12Gbps Read Intensive                           |
+| **Raid Controller** | H730p 2GB Mini Mono Raid Controller                                     |
+| **Port Speed**      | 10 GBit/s Network Port                                                   |
+| **Inclusive Traffic** | Guaranteed Unmetered - No Fair Usage Policy                            |
+| **Operating System** | Ubuntu 24.04 LTS                                                        |
+| **IP Address Allocation** | Single IP Only (/31 Subnet)                                        |
+| **Payment Term**    | Monthly                                                                 |
+
+
+
+
 ## 融合怪测试
 ```
 --------------------- A Bench Script By spiritlhl ----------------------
