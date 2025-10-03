@@ -44,7 +44,7 @@ export default {
     // 侧边栏宽度
     "--vh-aside-width": "280px",
     // 全局圆角 0.88
-    "--vh-main-radius": "0rem",   
+    "--vh-main-radius": "0",   
     // 主体内容宽度
     "--vh-main-max-width": "1600px",
   },
