@@ -43,8 +43,8 @@ export default {
     "--vh-font-color": "#1f2937",      // 深灰
     // 侧边栏宽度
     "--vh-aside-width": "280px",
-    // 全局圆角
-    "--vh-main-radius": "0.88rem",
+    // 全局圆角 0.88
+    "--vh-main-radius": "0rem",   
     // 主体内容宽度
     "--vh-main-max-width": "1600px",
   },
