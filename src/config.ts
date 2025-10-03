@@ -26,7 +26,7 @@ export default {
   CreateTime: '2021-09-01',
   // 顶部 Banner 配置
   HomeBanner: {
-    enable: false,
+    enable: true,
     // 首页高度
     HomeHeight: '38.88rem',
     // 其他页面高度
