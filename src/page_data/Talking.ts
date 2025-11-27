@@ -2,6 +2,11 @@ export default {
   api: '',
   data: [
     {
+      "date": "2025-11-28 02:26:02",
+      "tags": [],
+      "content": "图床还是上r2吧 本地存储太难顶了"
+    },
+    {
       "date": "2025-11-18 20:42:04",
       "tags": [],
       "content": "cloudflare 你无敌了，一炸就一小时"
