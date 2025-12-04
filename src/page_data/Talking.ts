@@ -2,6 +2,11 @@ export default {
   api: '',
   data: [
     {
+      "date": "2025-12-04 08:43:26",
+      "tags": [],
+      "content": "困死了"
+    },
+    {
       "date": "2025-12-02 02:44:17",
       "tags": [],
       "content": "这作息得调"
