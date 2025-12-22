@@ -2,6 +2,11 @@ export default {
   api: '',
   data: [
     {
+      "date": "2025-12-22 18:36:14",
+      "tags": [],
+      "content": "啊呀 又上dmit了 -50刀<p class=\"vh-img-flex\"><img src=\"http://23.82.99.203:9082/i/2025/12/22/69491ef4a9169.jpg\"></p>"
+    },
+    {
       "date": "2025-12-19 12:18:36",
       "tags": [],
       "content": "又冷了一些，给自己上了围巾，再冷些我是不是要裹被子上班了"
