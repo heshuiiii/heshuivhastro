@@ -2,6 +2,11 @@ export default {
   api: '',
   data: [
     {
+      "date": "2025-12-23 20:04:10",
+      "tags": [],
+      "content": "历经25天，4台机器30欧元才退款，这就是德国人的办事效率"
+    },
+    {
       "date": "2025-12-23 00:32:48",
       "tags": [],
       "content": "<p class=\"vh-img-flex\"><img src=\"https://picup.ikuyo.de/i/2025/12/23/694972a2f3082.png\"></p>"
